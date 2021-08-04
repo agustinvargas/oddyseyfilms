@@ -2,12 +2,15 @@
 .nav-link {
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 0.9rem;
 }
 #navbarScroll {
+  -webkit-box-flex: 0;
+  -ms-flex-positive: 0;
   flex-grow: 0;
 }
 .navbar-brand {
   font-family: "Noto Sans", sans-serif;
   font-weight: 700;
-  font-size: 1.5rem !important;
+  font-size: 1.3rem !important;
 }

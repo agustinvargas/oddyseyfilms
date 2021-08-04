@@ -1,0 +1,28 @@
+.propGreeting {
+  height: calc(100vh - (37.328px + 41px));
+  background-image: url("https://img.culturacolectiva.com/content/2016/04/Space-Oddissey.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+  .propGreeting {
+    height: calc(100vh - 57px);
+    background-image: url("https://media.giphy.com/media/feabF9tekM56jeIA1Q/giphy.gif");
+  }
+}
