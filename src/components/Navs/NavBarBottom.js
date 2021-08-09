@@ -1,7 +1,7 @@
 import { Navbar } from 'react-bootstrap';
-import CartWidget from "./cartWidget";
-import SearchWidget from "./searchWidget";
-import WishListWidget from "./wishListWidget";
+import CartWidget from "../NavWidgets/CartWidget/CartWidget";
+import SearchWidget from "../NavWidgets/SearchWidget/SearchWidget";
+import WishListWidget from "../NavWidgets/WishListWidget/WishListWidget";
 
 const NavBarBottom = () => {
     return (

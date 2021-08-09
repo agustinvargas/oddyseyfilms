@@ -1,8 +1,8 @@
 // Component
-import NavBar from "./components/navBar";
-import NavBarBottom from "./components/navBarBottom";
-import PropGreeting from "./components/propGreeting"
-import ItemListContainer from "./components/ItemListContainer"
+import NavBar from "./components/Navs/NavBar";
+import NavBarBottom from "./components/Navs/NavBarBottom";
+import Presentation from "./components/Presentation/Presentation"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 
 // Bootstrap Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,8 +12,8 @@ function App() {
   return (
     <>
       <NavBar />
-      <PropGreeting />
-      <ItemListContainer />
+      <Presentation />
+      <ItemListContainer greeting="Este es el propGreeting" />
       <NavBarBottom />
     </>
   );

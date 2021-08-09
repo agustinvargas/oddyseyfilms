@@ -1,5 +1,5 @@
 import React from 'react';
-import "./propGreeting.scss";
+import "./Presentation.scss";
 
 const PropGreeting = () => {
     return (
