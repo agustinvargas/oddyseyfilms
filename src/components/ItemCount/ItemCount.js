@@ -29,10 +29,10 @@ function ItemCount({ stock, initial }) {
     }
 
     return (
-        <div className="p-5 d-flex justify-content-center">
-            <Button className="mx-3" type="button" variant="dark" disabled={btnDeductDisabled} onClick={() => deductOne()}>-</Button>
-            <span>{counter}</span>
-            <Button className="mx-3" type="button" variant="dark" disabled={btnAddDisabled} onClick={() => addOne()}>+</Button>
+        <div className="py-5">
+            <Button type="button" variant="dark" disabled={btnDeductDisabled} onClick={() => deductOne()}>-</Button>
+            <span className="mx-3">{counter}</span>
+            <Button type="button" variant="dark" disabled={btnAddDisabled} onClick={() => addOne()}>+</Button>
         </div>
     );
 }

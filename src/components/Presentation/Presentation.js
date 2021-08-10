@@ -1,9 +1,9 @@
 import React from 'react';
 import "./Presentation.scss";
 
-const PropGreeting = () => {
+const Presentation = () => {
     return (
-        <div className="propGreeting"        >
+        <div className="presentation"        >
             <div className="mx-3">
                 <h3 className="text-uppercase text-white">Cinefilia de culto</h3>
                 <h1 className="mb-5 text-uppercase text-white">Tu odisea en el mundo</h1>
@@ -13,4 +13,4 @@ const PropGreeting = () => {
     );
 };
 
-export default PropGreeting;
+export default Presentation;

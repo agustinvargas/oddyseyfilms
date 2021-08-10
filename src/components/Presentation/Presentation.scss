@@ -1,4 +1,4 @@
-.propGreeting {
+.presentation {
   height: calc(100vh - (37.328px + 41px));
   background-image: url("https://img.culturacolectiva.com/content/2016/04/Space-Oddissey.gif");
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .propGreeting {
+  .presentation {
     height: calc(100vh - 57px);
     background-image: url("https://media.giphy.com/media/feabF9tekM56jeIA1Q/giphy.gif");
   }
