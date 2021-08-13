@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Presentation.scss";
+import "./Hero.scss";
 
-const Presentation = () => {
+const Hero = () => {
     return (
         <div className="presentation"        >
             <div className="mx-3">
@@ -13,4 +13,4 @@ const Presentation = () => {
     );
 };
 
-export default Presentation;
+export default Hero;

@@ -4,10 +4,10 @@ import { Button } from 'react-bootstrap';
 function ItemCount({ stock, initial }) {
     const [counter, setCounter] = useState(initial)
     const [btnAddDisabled, setBtnAddDisabled] = useState(initial === stock ? true : false)
-    const [btnDeductDisabled, setBtnDeductDisabled] = useState(true)
+    const [btnSubsDisabled, setBtnSubsDisabled] = useState(true)
 
     const addOne = () => {
-        setBtnDeductDisabled(false)
+        setBtnSubsDisabled(false)
         if (counter === stock - 1) {
             setCounter(counter + 1)
             setBtnAddDisabled(true)
@@ -17,11 +17,11 @@ function ItemCount({ stock, initial }) {
         }
     }
 
-    const deductOne = () => {
+    const subsOne = () => {
         setBtnAddDisabled(false)
         if (counter === initial + 1) {
             setCounter(counter - 1)
-            setBtnDeductDisabled(true)
+            setBtnSubsDisabled(true)
         }
         if (counter > initial) {
             setCounter(counter - 1)
@@ -30,7 +30,7 @@ function ItemCount({ stock, initial }) {
 
     return (
         <div className="py-5">
-            <Button type="button" variant="dark" disabled={btnDeductDisabled} onClick={() => deductOne()}>-</Button>
+            <Button type="button" variant="dark" disabled={btnSubsDisabled} onClick={() => subsOne()}>-</Button>
             <span className="mx-3">{counter}</span>
             <Button type="button" variant="dark" disabled={btnAddDisabled} onClick={() => addOne()}>+</Button>
         </div>

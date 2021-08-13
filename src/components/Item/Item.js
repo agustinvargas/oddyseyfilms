@@ -5,7 +5,7 @@ import "./Item.scss"
 
 function Item({ id, title, price, pictureUrl }) {
     return (
-        <Card style={{ width: "18rem" }} id={`product-${id}`}>
+        <Card style={{ width: "18rem" }} id={`card-product-${id}`}>
             <Card.Img variant="top" src={pictureUrl} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

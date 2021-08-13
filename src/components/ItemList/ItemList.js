@@ -7,9 +7,7 @@ const ItemList = ({ items }) => {
         <>
             {items.map(el => {
                 return (
-                    <>
-                        <Item id={el.id} title={el.title} price={el.price} pictureUrl={el.pictureUrl} />
-                    </>
+                    <Item key={el.id} id={el.id} title={el.title} price={el.price} pictureUrl={el.pictureUrl} />
                 )
             })}
         </>
