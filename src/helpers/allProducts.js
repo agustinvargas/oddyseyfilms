@@ -1,4 +1,4 @@
-const products = [
+const productsAll = [
     {
         id: 0,
         title: "2001 Space Odyssey",
@@ -29,12 +29,15 @@ const products = [
     },
 ];
 
-export const monkAsync = async () => {
+
+
+export const allProducts = async () => {
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(products);
-            console.log(reject);
+            resolve(productsAll);
+            reject("Ocurrió un error");
         }, 2000);
     });
     return promise;
 };
+

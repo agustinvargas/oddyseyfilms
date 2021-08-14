@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList";
-import { monkAsync } from '../../helpers/monkAsync';
+import { allProducts } from '../../helpers/allProducts';
 import "./ItemListContainer.scss"
 
 const ItemListContainer = ({ greeting }) => {
@@ -8,15 +8,15 @@ const ItemListContainer = ({ greeting }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        getMonkAsync();
+        getAllProducts();
     }, []);
 
-    const getMonkAsync = async () => {
+    const getAllProducts = async () => {
         try {
-            const response = await monkAsync();
-            setItems(response);
-        } catch (error) {
-            console.log("Error al cargar los productos: ", error);
+            const res = await allProducts();
+            setItems(res);
+        } catch (err) {
+            console.log("Error al cargar los productos: ", err);
         }
     };
 
@@ -24,7 +24,7 @@ const ItemListContainer = ({ greeting }) => {
         <div>
             {greeting}
             <div className="listContainerWrapper">
-                <ItemList items={items} />
+                <ItemList allProducts={items} />
             </div>
         </div>
     );

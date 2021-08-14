@@ -3,16 +3,17 @@ import { Card, Button } from "react-bootstrap";
 import ItemCount from '../ItemCount/ItemCount';
 import "./Item.scss"
 
-function Item({ id, title, price, pictureUrl }) {
+function Item({ data }) {
+    const { id, title, price, pictureUrl } = data
     return (
         <Card style={{ width: "18rem" }} id={`card-product-${id}`}>
             <Card.Img variant="top" src={pictureUrl} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Card.Text>ACA VA EL DETALLE DEL PRODUCTO</Card.Text>
+                <Card.Title>Descripción corta del producto</Card.Title>
                 <Card.Text>${price}</Card.Text>
                 <ItemCount stock={3} initial={1} />
-                <Button variant="dark">Agregar al carrito</Button>
+                <Button variant="dark">Ver detalles</Button>
             </Card.Body>
         </Card>
     );
