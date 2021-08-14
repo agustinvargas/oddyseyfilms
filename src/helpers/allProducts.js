@@ -35,7 +35,7 @@ export const allProducts = async () => {
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(productsAll);
-            reject("Ocurrió un error");
+            // reject("Ocurrió un error");
         }, 2000);
     });
     return promise;

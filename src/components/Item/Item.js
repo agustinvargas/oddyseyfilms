@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import ItemCount from '../ItemCount/ItemCount';
+import { Link } from "react-router-dom";
 import "./Item.scss"
 
 function Item({ data }) {
@@ -12,8 +12,9 @@ function Item({ data }) {
                 <Card.Title>{title}</Card.Title>
                 <Card.Title>Descripción corta del producto</Card.Title>
                 <Card.Text>${price}</Card.Text>
-                <ItemCount stock={3} initial={1} />
-                <Button variant="dark">Ver detalles</Button>
+                <Link to={`/item/${id}`}>
+                    <Button variant="dark">Ver detalles</Button>
+                </Link>
             </Card.Body>
         </Card>
     );

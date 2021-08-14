@@ -12,7 +12,7 @@ export const productOne = async () => {
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(product);
-            reject("Ocurrió un error");
+            // reject("Ocurrió un error");
         }, 2000);
     });
     return promise;
