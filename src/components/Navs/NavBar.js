@@ -8,7 +8,7 @@ import './NavBar.scss';
 const NavBar = () => {
     return (
         <Navbar bg="light" expand="lg" className="px-3 px-lg-5 d-flex justify-content-between">
-            <Link exact to="/"><Navbar.Brand translate="no">odysseyFilms</Navbar.Brand></Link>
+            <Navbar.Brand translate="no"><Link exact to="/">odysseyFilms</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <Nav
