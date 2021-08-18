@@ -8,11 +8,11 @@ const ItemList = ({ allProducts }) => {
     return (
         categoryId
             ? allProducts
-                .filter((el) => el.category === categoryId)
-                .map((el) => {
+                .filter(el => el.category === categoryId)
+                .map(el => {
                     return <Item data={el} key={el.id} />;
                 })
-            : allProducts.map((el) => {
+            : allProducts.map(el => {
                 return <Item data={el} key={el.id} />;
             })
     )

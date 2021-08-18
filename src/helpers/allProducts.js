@@ -15,23 +15,23 @@ const productsAll = [
         price: 2600,
         category: "cine",
         pictureUrl:
-            "/img/img-300x300.png",
+            "/img/stalker.jpg",
     },
     {
         id: 2,
-        title: "Dragon Ball Z",
+        title: "Akira",
         price: 2700,
         category: "anime",
         pictureUrl:
-            "/img/img-300x300.png",
+            "/img/akira.jpg",
     },
     {
         id: 3,
-        title: "Okupas",
+        title: "Mad Men",
         category: "series",
         price: 1500,
         pictureUrl:
-            "/img/img-300x300.png",
+            "/img/madmen.jpg",
     },
 ];
 
