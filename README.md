@@ -4,7 +4,7 @@
 
 ## Screenshots
 
-("/img/primeraentrega.png") "Primera entrega"
+![OdysseySpace](/img/primeraentrega.gif)
 
 ## Available Commands
 
