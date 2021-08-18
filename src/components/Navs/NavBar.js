@@ -16,14 +16,14 @@ const NavBar = () => {
                     // style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link><Link to="/tienda">Tienda</Link></Nav.Link>
+                    <Nav.Link as={Link} to="/tienda">Tienda</Nav.Link>
                     <NavDropdown title="Categorías" id="navbarScrollingDropdown">
-                        <NavDropdown.Item><Link to="/categorias/cine">Cine</Link></NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/categorias/cine">Cine</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/categorias/series">Series</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/categorias/anime">Animé</NavDropdown.Item>
                         {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item><Link to="/categorias/series">Series</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/categorias/anime">Animé</Link></NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
+                    <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             <div className="d-none d-lg-inline-block">
