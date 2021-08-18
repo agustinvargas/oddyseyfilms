@@ -4,7 +4,7 @@
 
 ## Screenshots
 
-![OdysseySpace](/img/primeraentrega.gif)
+![OdysseySpace](https://s5.gifyu.com/images/primeraentrega.gif)
 
 ## Available Commands
 
