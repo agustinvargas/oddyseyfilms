@@ -3,6 +3,7 @@ import ItemList from "../ItemList/ItemList";
 import { allProducts } from '../../helpers/allProducts';
 import "./ItemListContainer.scss"
 
+
 const ItemListContainer = ({ greeting }) => {
 
     const [items, setItems] = useState([]);

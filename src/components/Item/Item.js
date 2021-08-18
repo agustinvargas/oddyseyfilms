@@ -6,7 +6,7 @@ import "./Item.scss"
 function Item({ data }) {
     const { id, title, price, pictureUrl } = data
     return (
-        <Card style={{ width: "18rem" }} id={`card-product-${id}`}>
+        <Card style={{ maxWidth: "300px" }} id={`card-product-${id}`}>
             <Card.Img variant="top" src={pictureUrl} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
@@ -16,7 +16,7 @@ function Item({ data }) {
                     <Button variant="dark">Ver detalles</Button>
                 </Link>
             </Card.Body>
-        </Card>
+        </Card >
     );
 }
 

@@ -14,7 +14,7 @@ const Router = () => {
             <NavBar />
             <Switch>
                 <Route path="/item/:itemId" component={ItemDetailContainer} />
-                <Route path="/category/:id" component={ItemListContainer} />
+                <Route path="/categorias/:categoryId" component={ItemListContainer} />
                 <Route path="/contacto" component={Contact} />
                 <Route path="/tienda" component={ItemListContainer} />
                 <Route exact path="/">

@@ -18,10 +18,10 @@ const NavBar = () => {
                 >
                     <Nav.Link><Link to="/tienda">Tienda</Link></Nav.Link>
                     <NavDropdown title="Categorías" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Cine</NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/categorias/cine">Cine</Link></NavDropdown.Item>
                         {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item href="#action6">Series</NavDropdown.Item>
-                        <NavDropdown.Item href="#action7">Animé</NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/categorias/series">Series</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/categorias/anime">Animé</Link></NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
                 </Nav>
