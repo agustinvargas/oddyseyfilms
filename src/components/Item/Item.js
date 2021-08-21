@@ -10,7 +10,6 @@ function Item({ data }) {
             <Card.Img variant="top" src={pictureUrl} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Card.Title>Descripción corta del producto</Card.Title>
                 <Card.Text>${price}</Card.Text>
                 <Link to={`/item/${id}`}>
                     <Button variant="dark">Ver detalles</Button>

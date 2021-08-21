@@ -25,7 +25,15 @@ const ItemListContainer = ({ greeting }) => {
         <div>
             {greeting}
             <div className="listContainerWrapper">
-                <ItemList allProducts={items} />
+                {items.length === 0 ? (
+                    <div>
+                        <p>
+                            Cargando productos...
+                        </p>
+                    </div>
+                ) : (
+                    <ItemList allProducts={items} />
+                )}
             </div>
         </div>
     );

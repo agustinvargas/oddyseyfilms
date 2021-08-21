@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, onAdd }) {
     const [counter, setCounter] = useState(initial)
     const [btnAddDisabled, setBtnAddDisabled] = useState(initial === stock ? true : false)
     const [btnSubsDisabled, setBtnSubsDisabled] = useState(true)
@@ -33,6 +33,7 @@ function ItemCount({ stock, initial }) {
             <Button type="button" variant="dark" disabled={btnSubsDisabled} onClick={() => subsOne()}>-</Button>
             <span className="mx-3">{counter}</span>
             <Button type="button" variant="dark" disabled={btnAddDisabled} onClick={() => addOne()}>+</Button>
+            <Button type="button" variant="dark" onClick={() => onAdd(counter)}>Agregar al carrito</Button>
         </div>
     );
 }

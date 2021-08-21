@@ -13,6 +13,8 @@ const productsAll = [
         id: 1,
         title: "Stalker",
         price: 2600,
+        description: "Acá va la descripción del producto",
+        stock: 5,
         category: "cine",
         pictureUrl:
             "/img/stalker.jpg",
@@ -20,6 +22,8 @@ const productsAll = [
     {
         id: 2,
         title: "Akira",
+        description: "Acá va la descripción del producto",
+        stock: 5,
         price: 2700,
         category: "anime",
         pictureUrl:
@@ -29,6 +33,8 @@ const productsAll = [
         id: 3,
         title: "Mad Men",
         category: "series",
+        description: "Acá va la descripción del producto",
+        stock: 5,
         price: 1500,
         pictureUrl:
             "/img/madmen.jpg",

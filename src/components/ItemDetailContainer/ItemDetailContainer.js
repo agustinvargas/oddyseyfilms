@@ -23,25 +23,18 @@ const ItemDetailContainer = () => {
 
     console.log(items);
 
-
-    // useEffect(() => {
-    //     getProductOne();
-    // }, []);
-
-    // const getProductOne = async () => {
-    //     try {
-    // const res = await productOne();
-    // const product = res.find(el => el.id = itemId)
-    // setItems(product);
-    //     } catch (err) {
-    //         console.log("Error al cargar los productos: ", err);
-    //     }
-    // };
-
-
-
     return (
-        <ItemDetail items={items} idItem={itemId} />
+        <>
+            {items.length === 0 ? (
+                <div className="text-center">
+                    <p>
+                        Cargando producto...
+                    </p>
+                </div>
+            ) : (
+                <ItemDetail item={items} />
+            )}
+        </>
     );
 };
 
