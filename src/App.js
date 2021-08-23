@@ -1,15 +1,15 @@
 import React from "react"
 import Router from "./router/Router";
-import { CartContext } from "./contexts/cartContext";
+import { CartProvider } from "./contexts/cartContext/CartContext";
 // Bootstrap Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
   return (
-    <CartContext.Provider value={[]}>
+    <CartProvider>
       <Router />
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

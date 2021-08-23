@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from "../../contexts/cartContext/CartContext";
 
 const ItemDetail = ({ item }) => {
+    const { id, title, price, pictureUrl, description, stock } = item
     const quantityInitial = 0
     const [quantity, setQuantity] = useState(quantityInitial)
 
+    const { addToCart } = useContext(CartContext);
+
     const onAdd = (qua) => {
         setQuantity(qua)
+        addToCart(item, qua);
     }
-
-    const { id, title, price, pictureUrl, description } = item
 
     return (
         <Card style={{ width: "18rem" }} id={`detail-product-${id}`}>
@@ -27,7 +30,7 @@ const ItemDetail = ({ item }) => {
                         </button>
                     </Link>
                 ) : (
-                    <ItemCount stock={3} initial={1} onAdd={onAdd} />
+                    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
                 )}
             </Card.Body>
         </Card>
