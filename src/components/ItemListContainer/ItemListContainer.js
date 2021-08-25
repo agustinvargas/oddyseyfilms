@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList";
 import { allProducts } from '../../helpers/allProducts';
-import "./ItemListContainer.scss"
+import Loader from '../Loader/Loader';
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -22,20 +22,16 @@ const ItemListContainer = ({ greeting }) => {
     };
 
     return (
-        <div>
+        <>
             {greeting}
-            <div className="listContainerWrapper">
+            <div className="d-flex justify-content-center align-items-center flex-wrap">
                 {items.length === 0 ? (
-                    <div>
-                        <p>
-                            Cargando productos...
-                        </p>
-                    </div>
+                    <Loader loading />
                 ) : (
                     <ItemList allProducts={items} />
                 )}
             </div>
-        </div>
+        </>
     );
 };
 

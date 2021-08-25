@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { allProducts } from '../../helpers/allProducts';
+import Loader from '../Loader/Loader';
 
 const ItemDetailContainer = () => {
-    const [items, setItems] = useState([]);
+    const [item, setItems] = useState([]);
     const { itemId } = useParams();
     console.log(itemId);
 
@@ -21,18 +22,14 @@ const ItemDetailContainer = () => {
         getAllProducts()
     }, [itemId]);
 
-    console.log(items);
+    console.log(item);
 
     return (
         <>
-            {items.length === 0 ? (
-                <div className="text-center">
-                    <p>
-                        Cargando producto...
-                    </p>
-                </div>
+            {item.length === 0 ? (
+                <Loader loading />
             ) : (
-                <ItemDetail item={items} />
+                <ItemDetail item={item} />
             )}
         </>
     );

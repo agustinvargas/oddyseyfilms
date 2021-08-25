@@ -13,7 +13,7 @@ const ItemDetail = ({ item }) => {
 
     const onAdd = (qua) => {
         setQuantity(qua)
-        addToCart(item, qua);
+        addToCart(item, qua)
     }
 
     return (

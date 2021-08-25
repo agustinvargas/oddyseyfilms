@@ -26,7 +26,7 @@ const NavBar = () => {
                     <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
-            <div className="d-none d-lg-inline-block">
+            <div className="d-none d-lg-flex">
                 <SearchWidget className="mx mx-lg-3" />
                 <WishListWidget />
                 <CartWidget />
