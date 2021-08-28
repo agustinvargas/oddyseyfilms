@@ -4,7 +4,6 @@ import { CartProvider } from "./contexts/cartContext/CartContext";
 // Bootstrap Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
   return (
     <CartProvider>

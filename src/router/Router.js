@@ -13,7 +13,7 @@ const Router = () => {
         <BrowserRouter>
             <NavBar />
             <Switch>
-                <Route path="/cart" component={Cart} />
+                <Route path="/carrito" component={Cart} />
                 <Route path="/item/:itemId" component={ItemDetailContainer} />
                 <Route path="/categorias/:categoryId" component={ItemListContainer} />
                 <Route path="/contacto" component={Contact} />

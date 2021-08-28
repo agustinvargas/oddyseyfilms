@@ -2,12 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./CartWidget.scss"
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/cartContext/CartContext";
+import { Link } from "react-router-dom";
 
-const CartWidget = (itemQuantity) => {
-    const { cartNumber } = useContext(CartContext);
+const CartWidget = () => {
+    const { cart, cartNumber } = useContext(CartContext);
     return (
+        cart.length === 0 ||
         <div className="cart">
-            <FontAwesomeIcon icon="shopping-cart" size="lg" className="mx-2 cart__icon " role="button" />
+            <Link to="/carrito"><FontAwesomeIcon icon="shopping-cart" size="lg" className="mx-2 cart__icon " role="button" /></Link>
+
             <span className="cart__number">{cartNumber()}</span>
         </div>
     )

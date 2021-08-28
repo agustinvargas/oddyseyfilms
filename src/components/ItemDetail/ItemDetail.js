@@ -24,7 +24,7 @@ const ItemDetail = ({ item }) => {
                 <Card.Text>{description}</Card.Text>
                 <Card.Text>${price}</Card.Text>
                 {quantity > quantityInitial ? (
-                    <Link to="/cart">
+                    <Link to="/carrito">
                         <button className="btn btn-dark">
                             Terminar mi compra
                         </button>

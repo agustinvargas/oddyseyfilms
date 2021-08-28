@@ -6,14 +6,42 @@ export const CartContext = createContext([]);
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
+
+
     const cartNumber = () => cart.reduce((acc, cur) => acc + cur.quantity, 0);
 
     const clearCart = () => {
         setCart([]);
     };
 
+    const getItem = id => cart.find(e => e.item.id === id);
+
+    const subQuantity = (id, ammount) => {
+        if (getItem(id).quantity > ammount) {
+            setCart(
+                cart.map(e => {
+                    if (e.item.id === id) e.quantity -= ammount;
+                    return e;
+                })
+            );
+        } else {
+            removeFromCart(id);
+        }
+    };
+
+    const plusQuantity = (id, qua, stock) => {
+        if (qua <= stock) {
+            setCart(
+                cart.map(e => {
+                    if (e.item.id === id) e.quantity = e.quantity + 1;
+                    return e
+                })
+            );
+        }
+    }
+
     const removeFromCart = (id) => {
-        setCart(cart.filter(el => el.id !== id));
+        setCart(cart.filter(e => e.item.id !== id));
     };
 
 
@@ -33,7 +61,7 @@ export const CartProvider = ({ children }) => {
     console.log("Cart", cart)
 
     return (
-        <CartContext.Provider value={{ cart, setCart, clearCart, addToCart, removeFromCart, cartNumber }} >
+        <CartContext.Provider value={{ cart, setCart, clearCart, addToCart, cartNumber, plusQuantity, subQuantity, removeFromCart }} >
             {children}
         </CartContext.Provider>
     )
