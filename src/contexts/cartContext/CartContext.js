@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
     };
 
     const plusQuantity = (id, qua, stock) => {
-        if (qua <= stock) {
+        if (qua < stock) {
             setCart(
                 cart.map(e => {
                     if (e.item.id === id) e.quantity = e.quantity + 1;

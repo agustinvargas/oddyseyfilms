@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList";
-import { allProducts } from '../../helpers/allProducts';
+// import { allProducts } from '../../helpers/allProducts';
 import Loader from '../Loader/Loader';
-
+import { getFirestore } from '../../firebase';
 
 const ItemListContainer = ({ greeting }) => {
 
     const [items, setItems] = useState([]);
 
+    const getProducts = () => {
+        const firebaseProducts = [];
+        getFirestore().collection("items").onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((item) => {
+                firebaseProducts.push({ ...item.data(), id: item.id });
+            });
+            setItems(firebaseProducts);
+        });
+    };
+
+
     useEffect(() => {
-        getAllProducts();
+        // getFirestore().collection("items").get().then((data) => {
+        //     const products = data.docs.map((doc) => doc.data())
+        //     setItems(products)
+
+        // })
+        getProducts()
     }, []);
 
-    const getAllProducts = async () => {
-        try {
-            const res = await allProducts();
-            setItems(res);
-        } catch (err) {
-            console.log("Error al cargar los productos: ", err);
-        }
-    };
+    console.log(items)
 
     return (
         <>

@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { allProducts } from '../../helpers/allProducts';
+// import { allProducts } from '../../helpers/allProducts';
 import Loader from '../Loader/Loader';
+import { getFirestore } from '../../firebase';
 
 const ItemDetailContainer = () => {
     const [item, setItems] = useState([]);
-    const { itemId } = useParams();
+    let { itemId } = useParams();
     console.log(itemId);
 
+    const getItem = () => {
+        const firebaseProducts = [];
+        getFirestore().collection("items").onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((item) => {
+                firebaseProducts.push({ ...item.data(), id: item.id });
+            });
+            const item = firebaseProducts.find(el => el.id === itemId)
+            item ? setItems(item) : alert("No existe ningún producto con el parámetro indicado en la URL")
+        });
+    };
+
     useEffect(() => {
-        const getAllProducts = async () => {
-            try {
-                const res = await allProducts()
-                const product = res.find(el => el.id === parseInt(itemId))
-                product ? setItems(product) : alert("No existe ningún producto con el parámetro indicado en la URL")
-            } catch (err) {
-                console.log("Error al cargar los productos: ", err);
-            }
-        };
-        getAllProducts()
+        getItem()
     }, [itemId]);
 
     console.log(item);

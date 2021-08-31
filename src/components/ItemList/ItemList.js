@@ -4,11 +4,10 @@ import { useParams } from "react-router-dom";
 
 const ItemList = ({ allProducts }) => {
     const { categoryId } = useParams();
-
     return (
         categoryId
             ? allProducts
-                .filter(el => el.category === categoryId)
+                .filter(el => el.categoryName === categoryId)
                 .map(el => {
                     return <Item data={el} key={el.id} />;
                 })
