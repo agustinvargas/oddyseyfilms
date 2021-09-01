@@ -9,22 +9,16 @@ const ItemListContainer = ({ greeting }) => {
     const [items, setItems] = useState([]);
 
     const getProducts = () => {
-        const firebaseProducts = [];
-        getFirestore().collection("items").onSnapshot((querySnapshot) => {
-            querySnapshot.forEach((item) => {
-                firebaseProducts.push({ ...item.data(), id: item.id });
-            });
-            setItems(firebaseProducts);
-        });
-    };
-
+        const db = getFirestore();
+        const itemCollection = db.collection("items");
+        itemCollection.onSnapshot(querySnapshop => {
+            setItems(querySnapshop.docs.map(doc => {
+                return ({ id: doc.id, ...doc.data() })
+            }))
+        })
+    }
 
     useEffect(() => {
-        // getFirestore().collection("items").get().then((data) => {
-        //     const products = data.docs.map((doc) => doc.data())
-        //     setItems(products)
-
-        // })
         getProducts()
     }, []);
 

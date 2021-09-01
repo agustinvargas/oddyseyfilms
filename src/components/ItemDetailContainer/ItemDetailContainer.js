@@ -10,18 +10,17 @@ const ItemDetailContainer = () => {
     let { itemId } = useParams();
     console.log(itemId);
 
-    const getItem = () => {
-        const firebaseProducts = [];
-        getFirestore().collection("items").onSnapshot((querySnapshot) => {
-            querySnapshot.forEach((item) => {
-                firebaseProducts.push({ ...item.data(), id: item.id });
-            });
-            const item = firebaseProducts.find(el => el.id === itemId)
-            item ? setItems(item) : alert("No existe ningún producto con el parámetro indicado en la URL")
-        });
-    };
-
     useEffect(() => {
+        const getItem = () => {
+            const firebaseProducts = [];
+            getFirestore().collection("items").onSnapshot((querySnapshot) => {
+                querySnapshot.forEach((item) => {
+                    firebaseProducts.push({ ...item.data(), id: item.id });
+                });
+                const item = firebaseProducts.find(el => el.id === itemId)
+                item ? setItems(item) : alert("No existe ningún producto con el parámetro indicado en la URL")
+            });
+        };
         getItem()
     }, [itemId]);
 
