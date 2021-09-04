@@ -7,6 +7,7 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer';
 import Contact from '../pages/Contact';
 import Cart from '../components/Cart/Cart';
+import Checkout from '../components/Checkout/Checkout';
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
             <NavBar />
             <Switch>
                 <Route path="/carrito" component={Cart} />
+                <Route path="/finalizar-compra" component={Checkout} />
                 <Route path="/item/:itemId" component={ItemDetailContainer} />
                 <Route path="/categorias/:categoryId" component={ItemListContainer} />
                 <Route path="/contacto" component={Contact} />

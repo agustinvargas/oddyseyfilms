@@ -2,21 +2,17 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../contexts/cartContext/CartContext';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import Checkout from '../Checkout';
-
 
 const Cart = () => {
-    const { cart, clearCart, removeFromCart, subQuantity, plusQuantity } = useContext(CartContext);
+    const { cart, clearCart, removeFromCart, subQuantity, plusQuantity, calcTotal } = useContext(CartContext);
     return (
         cart.length > 0 ? (
             <>
                 <Container>
                     <Row>
                         <Col className="d-flex justify-content-between align-items-center">
-                            <h1>Total: {cart.reduce(
-                                (acc, el) => el.item.price * el.quantity + acc,
-                                0
-                            )}</h1>
+                            <h1>Total: {calcTotal()}
+                            </h1>
                             <Button onClick={() => clearCart()} variant="primary">VACIAR</Button>
                         </Col>
                     </Row>
@@ -32,8 +28,13 @@ const Cart = () => {
                                 <div className="d-flex justify-content-between align-items-center"><span>Total</span><span>{el.quantity * el.item.price}</span></div>
                             </Col>
                         </Row>))}
+                    <Row>
+                        <Col>
+                            <Button as={Link} to="/finalizar-compra">Finalizar compra</Button>
+                        </Col>
+                    </Row>
                 </Container>
-                {/* <Checkout /> */}
+
             </>
         ) : <Button as={Link} to="/tienda">NO HAY PRODUCTOS AGREGADOS. IR A LA TIENDA</Button>
     );
