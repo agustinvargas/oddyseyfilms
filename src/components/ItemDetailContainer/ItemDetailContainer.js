@@ -8,20 +8,19 @@ import { getFirestore } from '../../firebase';
 const ItemDetailContainer = () => {
     const [item, setItems] = useState([]);
     let { itemId } = useParams();
-    console.log(itemId);
 
     useEffect(() => {
-        const getItem = () => {
-            const firebaseProducts = [];
-            getFirestore().collection("items").onSnapshot((querySnapshot) => {
-                querySnapshot.forEach((item) => {
-                    firebaseProducts.push({ ...item.data(), id: item.id });
-                });
-                const item = firebaseProducts.find(el => el.id === itemId)
-                item ? setItems(item) : alert("No existe ningún producto con el parámetro indicado en la URL")
-            });
-        };
-        getItem()
+        const docRef = getFirestore().collection("items").doc(itemId);
+        docRef.get().then((doc) => {
+            if (doc.exists) {
+                // setItems(doc.data())
+                setItems({ id: doc.id, ...doc.data() })
+            } else {
+                console.error("Fallo al cargar el producto");
+            }
+        }).catch((error) => {
+            console.log("Fallo al cargar el producto", error);
+        });
     }, [itemId]);
 
     console.log(item);

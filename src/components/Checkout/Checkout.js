@@ -6,11 +6,11 @@ import { CartContext } from "../../contexts/cartContext/CartContext"
 import { getFirestore } from "../../firebase"
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import { Link } from "react-router-dom"
-
+import { useHistory } from "react-router-dom"
+import Loader from "../Loader/Loader"
 
 const Checkout = () => {
-    const { cart, calcTotal } = useContext(CartContext)
+    const { cart, setCart, calcTotal } = useContext(CartContext)
     const [customerInfo, setCustomerInfo] = useState({
         name: null,
         email: null,
@@ -18,16 +18,17 @@ const Checkout = () => {
     })
     const [order, setOrder] = useState(false)
 
-
     const { name, email, phone } = customerInfo;
     const isDiabledButton = !(name && email && phone);
+
+    const history = useHistory()
 
     const handleChange = event => {
         setCustomerInfo({ ...customerInfo, [event.target.name]: event.target.value });
     };
 
-
     const handleFinishPurchase = () => {
+        setOrder(true);
         const db = getFirestore();
         const orders = db.collection("orders");
         const batch = db.batch();
@@ -51,7 +52,8 @@ const Checkout = () => {
             date: firebase.firestore.Timestamp.fromDate(new Date()),
             total: calcTotal()
         };
-
+        console.log("Nueva orden desde el checkout", newOrder)
+        console.log("Cart desde Checkout", cart)
         orders
             .add(newOrder)
             .then((response) => {
@@ -61,32 +63,33 @@ const Checkout = () => {
                     batch.update(docRef, { stock: item.stock - quantity });
                 });
                 batch.commit();
+                setCart([])
+                history.push(`/orden-creada/${response.id}`)
+                setOrder(false)
             })
             .catch((error) => console.log(error))
-            .finally(setOrder(true))
     }
 
     return (
         <Container>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control name="name" type="text" placeholder="Nombre" onChange={handleChange} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Correo electrónico</Form.Label>
-                    <Form.Control name="email" type="email" placeholder="Ingresá tu correo" onChange={handleChange} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPhone">
-                    <Form.Label>Teléfono</Form.Label>
-                    <Form.Control name="phone" type="telephone" placeholder="Teléfono" onChange={handleChange} />
-                </Form.Group>
-                {order ? <Link to="/tienda"><Button variant="primary">
-                    Realizar otro pedido
-                </Button></Link> : <Button disabled={isDiabledButton} variant="primary" onClick={handleFinishPurchase}>
-                    Realizar pedido
-                </Button>}
-            </Form>
+            {order ? <Loader loading /> :
+                <Form>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Label>Nombre</Form.Label>
+                        <Form.Control name="name" type="text" placeholder="Nombre" onChange={handleChange} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Correo electrónico</Form.Label>
+                        <Form.Control name="email" type="email" placeholder="Ingresá tu correo" onChange={handleChange} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPhone">
+                        <Form.Label>Teléfono</Form.Label>
+                        <Form.Control name="phone" type="telephone" placeholder="Teléfono" onChange={handleChange} />
+                    </Form.Group>
+                    <Button disabled={isDiabledButton} variant="primary" onClick={handleFinishPurchase}>
+                        Realizar pedido
+                    </Button>
+                </Form>}
         </Container>
     )
 }

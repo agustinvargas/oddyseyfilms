@@ -5,9 +5,9 @@ import { CartContext } from "../../../contexts/cartContext/CartContext";
 import { Link } from "react-router-dom";
 
 const CartWidget = () => {
-    const { cart, cartNumber } = useContext(CartContext);
+    const { cartNumber } = useContext(CartContext);
     return (
-        cart.length === 0 ||
+
         <div className="cart">
             <Link to="/carrito"><FontAwesomeIcon icon="shopping-cart" size="lg" className="mx-2 cart__icon " role="button" /></Link>
 
