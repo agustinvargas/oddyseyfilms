@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from "../../contexts/cartContext/CartContext";
+import "./ItemDetail.scss"
 
 const ItemDetail = ({ item }) => {
     const { id, title, price, pictureUrl, description, stock } = item
@@ -17,12 +18,12 @@ const ItemDetail = ({ item }) => {
     }
 
     return (
-        <Card style={{ width: "18rem" }} id={`detail-product-${id}`}>
-            <Card.Img variant="top" src={pictureUrl} />
-            <Card.Body>
+        <Card id={`detail-product-${id}`} className="flex-lg-row mx-lg-auto align-items-lg-center my-lg-5 p-lg-5" style={{ maxWidth: "1000px" }}>
+            <Card.Img variant="top" src={pictureUrl} style={{ maxWidth: "500px" }} />
+            <Card.Body className="px-lg-5">
                 <Card.Title>{title}</Card.Title>
-                <Card.Text>{description}</Card.Text>
                 <Card.Text>${price}</Card.Text>
+                <Card.Text>{description}</Card.Text>
                 {quantity > quantityInitial ? (
                     <Link to="/carrito">
                         <button className="btn btn-dark">

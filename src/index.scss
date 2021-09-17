@@ -13,3 +13,13 @@ a:active {
   color: inherit;
   text-decoration: none;
 }
+
+body {
+  margin-bottom: 40px;
+} // it is neccesary for navbar bottom
+
+@media screen and (min-width: 992px) {
+  body {
+    margin-bottom: initial;
+  }
+}

@@ -21,9 +21,7 @@ const NavBar = () => {
                         <NavDropdown.Item as={Link} to="/categorias/cine">Cine</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/categorias/series">Series</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/categorias/anime">Animé</NavDropdown.Item>
-                        {/* <NavDropdown.Divider /> */}
                     </NavDropdown>
-                    <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             <div className="d-none d-lg-flex">

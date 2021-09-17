@@ -29,12 +29,15 @@ function ItemCount({ stock, initial, onAdd }) {
     }
 
     return (
-        <div className="py-5">
-            <Button type="button" variant="dark" disabled={btnSubsDisabled} onClick={() => subsOne()}>-</Button>
-            <span className="mx-3">{counter}</span>
-            <Button type="button" variant="dark" disabled={btnAddDisabled} onClick={() => addOne()}>+</Button>
+        <div className="d-flex justify-content-evenly align-items-center justify-content-lg-between">
+            <div className="py-3" >
+                <Button type="button" variant="dark" disabled={btnSubsDisabled} onClick={() => subsOne()}>-</Button>
+                <span className="mx-3">{counter}</span>
+                <Button type="button" variant="dark" disabled={btnAddDisabled} onClick={() => addOne()}>+</Button>
+            </div>
             <Button type="button" variant="dark" onClick={() => onAdd(counter)}>Agregar al carrito</Button>
         </div>
+
     );
 }
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList";
-// import { allProducts } from '../../helpers/allProducts';
 import Loader from '../Loader/Loader';
 import { getFirestore } from '../../firebase';
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
 
     const [items, setItems] = useState([]);
 
@@ -23,18 +22,21 @@ const ItemListContainer = ({ greeting }) => {
     }, []);
 
     console.log(items)
+    const style = {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, max-content))",
+        gridGap: "16px",
+        justifyContent: "center"
 
+    }
     return (
-        <>
-            {greeting}
-            <div className="d-flex justify-content-center align-items-center flex-wrap">
-                {items.length === 0 ? (
-                    <Loader loading />
-                ) : (
-                    <ItemList allProducts={items} />
-                )}
-            </div>
-        </>
+        <div className="my-5" style={style}>
+            {items.length === 0 ? (
+                <Loader loading />
+            ) : (
+                <ItemList allProducts={items} />
+            )}
+        </div>
     );
 };
 
