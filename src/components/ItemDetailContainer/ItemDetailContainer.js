@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail";
-// import { allProducts } from '../../helpers/allProducts';
 import Loader from '../Loader/Loader';
 import { getFirestore } from '../../firebase';
 
@@ -13,7 +12,6 @@ const ItemDetailContainer = () => {
         const docRef = getFirestore().collection("items").doc(itemId);
         docRef.get().then((doc) => {
             if (doc.exists) {
-                // setItems(doc.data())
                 setItems({ id: doc.id, ...doc.data() })
             } else {
                 console.error("Fallo al cargar el producto");

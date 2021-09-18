@@ -24,8 +24,6 @@ export const WishListProvider = ({ children }) => {
         }
     };
 
-    console.log("WishList", wishList)
-
     return (
         <WishListContext.Provider value={{ wishList, setWishList, wishListNumber, clearWishList, addToWishList, removeFromWishList }} >
             {children}

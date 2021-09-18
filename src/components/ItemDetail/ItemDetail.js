@@ -3,7 +3,6 @@ import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from "../../contexts/cartContext/CartContext";
-import "./ItemDetail.scss"
 
 const ItemDetail = ({ item }) => {
     const { id, title, price, pictureUrl, description, stock } = item

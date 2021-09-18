@@ -2,7 +2,6 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import WishListButton from "../WishList/WishListButton"
-import "./Item.scss"
 
 function Item({ data }) {
     const { id, title, price, pictureUrl } = data

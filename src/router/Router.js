@@ -6,11 +6,11 @@ import ItemListContainer from "../components/ItemListContainer/ItemListContainer
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer';
 import Cart from '../components/Cart/Cart';
 import Checkout from '../components/Checkout/Checkout';
-import Thanks from '../pages/Thanks/Thanks';
-import SearchingPage from '../pages/SearchingPage/SearchingPage';
+import Thanks from '../components/Thanks/Thanks';
 import WishList from '../components/WishList/WishList';
 import Hero from '../components/Hero/Hero';
 import Message from '../components/Messages/Message';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 const Router = () => {
     return (
@@ -24,7 +24,7 @@ const Router = () => {
                 <Route path="/categorias/:categoryId" component={ItemListContainer} />
                 <Route path="/tienda" component={ItemListContainer} />
                 <Route path="/orden-creada/:orderId" component={Thanks} />
-                <Route path="/buscar" component={SearchingPage} />
+                <Route path="/buscar" component={SearchBar} />
                 <Route exact path="/" component={Hero} />
                 <Route path="*"><Message text="¡Ups! No se encontró la página" /></Route>
             </Switch>

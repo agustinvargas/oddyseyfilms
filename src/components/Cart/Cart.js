@@ -51,7 +51,7 @@ const Cart = () => {
                     </Col>
                     <Col lg={4} className="cart-info my-5 my-lg-0" >
                         <Row className="cart-info">
-                            <h1 className="py-3">Datos del carrito</h1>
+                            <h1 className="py-3">Carrito</h1>
                             <p>Envío gratuito</p>
                             <div className="d-flex justify-content-between align-items-center py-3">
                                 <span className="cart-info__title">Total</span>
