@@ -10,6 +10,7 @@ import Thanks from '../pages/Thanks/Thanks';
 import SearchingPage from '../pages/SearchingPage/SearchingPage';
 import WishList from '../components/WishList/WishList';
 import Hero from '../components/Hero/Hero';
+import Message from '../components/Messages/Message';
 
 const Router = () => {
     return (
@@ -25,6 +26,7 @@ const Router = () => {
                 <Route path="/orden-creada/:orderId" component={Thanks} />
                 <Route path="/buscar" component={SearchingPage} />
                 <Route exact path="/" component={Hero} />
+                <Route path="*"><Message text="¡Ups! No se encontró la página" /></Route>
             </Switch>
             <NavBarBottom /> {/* Only in mobile */}
         </BrowserRouter>

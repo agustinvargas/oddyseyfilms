@@ -1,0 +1,32 @@
+.cart-ref {
+  border-bottom: 3px solid #f8f9fa;
+  padding-bottom: 1em;
+  &__text {
+    font-size: 1em;
+    font-weight: 500;
+  }
+}
+.cart-product {
+  padding: 1.1em 0;
+  border-bottom: 2px solid #f8f9fa;
+
+  &__title {
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+}
+
+.cart-info {
+  background-color: #f8f9fa;
+  padding: 0.5em;
+  &__title {
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cart-info {
+    padding: 1.5em;
+  }
+}

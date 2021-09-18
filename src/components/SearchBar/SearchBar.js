@@ -36,8 +36,8 @@ const SearchBar = () => {
                     if (searchTerm === "") {
                         return null
                     } else if (val.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
-                        return val
                     }
+                    return val
                 }).map((val) => {
                     return <Item data={val} key={val.id} />
                 })

@@ -19,7 +19,7 @@ const ItemDetail = ({ item }) => {
 
     return (
         <Card id={`detail-product-${id}`} className="flex-lg-row mx-lg-auto align-items-lg-center my-lg-5 p-lg-5" style={{ maxWidth: "1000px" }}>
-            <Card.Img variant="top" src={pictureUrl} style={{ maxWidth: "500px" }} />
+            <Card.Img variant="top" src={pictureUrl} style={{ maxWidth: "500px" }} alt={title} />
             <Card.Body className="px-lg-5">
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>${price}</Card.Text>
