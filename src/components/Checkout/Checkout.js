@@ -9,6 +9,7 @@ import "firebase/compat/firestore";
 import { useHistory } from "react-router-dom"
 import Loader from "../Loader/Loader"
 import Message from "../Messages/Message"
+import AlertForm from "../Alert/Alert"
 
 const Checkout = () => {
     const { cart, setCart, calcTotal } = useContext(CartContext)
@@ -19,6 +20,8 @@ const Checkout = () => {
         phone: null
     })
     const [order, setOrder] = useState(false)
+    const [alert, setAlert] = useState(false)
+
 
     const { name, email, emailcheck, phone } = customerInfo;
     const isDiabledButton = !(name && email && phone);
@@ -31,7 +34,7 @@ const Checkout = () => {
 
     const handleFinishPurchase = () => {
         if (!(email === emailcheck)) {
-            return alert("Los correos no coinciden")
+            setAlert(true)
         } else {
 
             setOrder(true);
@@ -79,27 +82,32 @@ const Checkout = () => {
         cart.length > 0 ?
             <Container className="w-75 py-5 mx-auto" >
                 {order ? <Loader loading /> :
-                    <Form className="px-lg-5">
-                        <Form.Group className="mb-3" controlId="formBasicName">
-                            <Form.Label for="name">Nombre</Form.Label>
-                            <Form.Control name="name" type="text" onChange={handleChange} required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label for="email">Correo electrónico</Form.Label>
-                            <Form.Control name="email" type="email" onChange={handleChange} required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label for="email">Repetir correo electrónico</Form.Label>
-                            <Form.Control name="emailcheck" type="email" onChange={handleChange} required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPhone">
-                            <Form.Label for="phone">Teléfono</Form.Label>
-                            <Form.Control name="phone" type="number" onChange={handleChange} required />
-                        </Form.Group>
-                        <Button disabled={isDiabledButton} variant="dark" onClick={handleFinishPurchase}>
-                            Realizar pedido
-                        </Button>
-                    </Form>}
+                    <>
+                        :
+                        <Form className="px-lg-5">
+                            <Form.Group className="mb-3" controlId="formBasicName">
+                                <Form.Label for="name">Nombre</Form.Label>
+                                <Form.Control name="name" type="text" onChange={handleChange} required />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label for="email">Correo electrónico</Form.Label>
+                                <Form.Control name="email" type="email" onChange={handleChange} required />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label for="email">Repetir correo electrónico</Form.Label>
+                                <Form.Control name="emailcheck" type="email" onChange={handleChange} required />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicPhone">
+                                <Form.Label for="phone">Teléfono</Form.Label>
+                                <Form.Control name="phone" type="number" onChange={handleChange} required />
+                            </Form.Group>
+                            <Button disabled={isDiabledButton} variant="dark" onClick={handleFinishPurchase}>
+                                Realizar pedido
+                            </Button>
+                            {alert && <AlertForm state={alert} />}
+                        </Form>
+                    </>
+                }
             </Container>
             : <Message text="Debés agregar productos a tu carrito" />
     )

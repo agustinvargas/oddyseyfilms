@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 const ItemList = ({ allProducts }) => {
     const { categoryId } = useParams();
+
     return (
         categoryId
             ? allProducts

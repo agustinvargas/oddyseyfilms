@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList";
 import Loader from '../Loader/Loader';
 import { getFirestore } from '../../firebase';
+import { Breadcrumb, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ItemListContainer = () => {
 
@@ -30,13 +32,17 @@ const ItemListContainer = () => {
 
     }
     return (
-        <div className="my-5" style={style}>
-            {items.length === 0 ? (
-                <Loader loading />
-            ) : (
-                <ItemList allProducts={items} />
-            )}
-        </div>
+
+        items.length === 0 ? (
+            <Loader loading />
+        ) : (
+            <>
+                <div className="m-5" style={style}>
+                    <ItemList allProducts={items} />
+                </div>
+            </>
+        )
+
     );
 };
 
