@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList";
 import Loader from '../Loader/Loader';
 import { getFirestore } from '../../firebase';
-import { Breadcrumb, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import "./ItemListContainer.scss"
 
 const ItemListContainer = () => {
 
@@ -23,26 +22,17 @@ const ItemListContainer = () => {
         getProducts()
     }, []);
 
-    console.log(items)
-    const style = {
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, max-content))",
-        gridGap: "16px",
-        justifyContent: "center"
-
-    }
     return (
-
         items.length === 0 ? (
             <Loader loading />
         ) : (
-            <>
-                <div className="m-5" style={style}>
+            <div>
+                <h1 className="text-center px-4 my-5">Elegí tu poster</h1>
+                <div className="mx-lg-5 list-container">
                     <ItemList allProducts={items} />
                 </div>
-            </>
+            </div>
         )
-
     );
 };
 

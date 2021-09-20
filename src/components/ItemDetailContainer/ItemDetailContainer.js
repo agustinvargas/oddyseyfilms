@@ -21,8 +21,6 @@ const ItemDetailContainer = () => {
         });
     }, [itemId]);
 
-    console.log(item);
-
     return (
         <>
             {item.length === 0 ? (

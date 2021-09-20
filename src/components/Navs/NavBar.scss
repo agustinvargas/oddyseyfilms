@@ -1,8 +1,8 @@
 #navbarScrollingDropdown,
 .nav-link {
   text-transform: uppercase;
-  font-weight: 700;
   font-size: 0.9rem;
+  font-weight: 700 !important;
   & a {
     text-decoration: none;
     color: inherit;
@@ -15,11 +15,11 @@
   flex-grow: 0;
 }
 .navbar-brand {
-  font-family: "Noto Sans", sans-serif !important;
   font-weight: 700;
   font-size: 1.3rem !important;
   & a {
     text-decoration: none !important;
     color: inherit !important;
+    font-family: "Noto Sans", sans-serif !important;
   }
 }

@@ -22,7 +22,6 @@ const Checkout = () => {
     const [order, setOrder] = useState(false)
     const [alert, setAlert] = useState(false)
 
-
     const { name, email, emailcheck, phone } = customerInfo;
     const isDiabledButton = !(name && email && phone);
 
@@ -35,8 +34,8 @@ const Checkout = () => {
     const handleFinishPurchase = () => {
         if (!(email === emailcheck)) {
             setAlert(true)
+            // check both emails
         } else {
-
             setOrder(true);
             const db = getFirestore();
             const orders = db.collection("orders");
@@ -59,8 +58,7 @@ const Checkout = () => {
                 date: firebase.firestore.Timestamp.fromDate(new Date()),
                 total: calcTotal()
             };
-            console.log("Nueva orden desde el checkout", newOrder)
-            console.log("Cart desde Checkout", cart)
+
             orders
                 .add(newOrder)
                 .then((response) => {
@@ -71,6 +69,7 @@ const Checkout = () => {
                     });
                     batch.commit();
                     setCart([])
+                    // If order is ok, the cart will empty. Besides, stock will be updated
                     history.push(`/orden-creada/${response.id}`)
                     setOrder(false)
                 })
@@ -85,6 +84,7 @@ const Checkout = () => {
                     <>
                         :
                         <Form className="px-lg-5">
+                            <h1 className="mb-5">Completá tu datos</h1>
                             <Form.Group className="mb-3" controlId="formBasicName">
                                 <Form.Label for="name">Nombre</Form.Label>
                                 <Form.Control name="name" type="text" onChange={handleChange} required />

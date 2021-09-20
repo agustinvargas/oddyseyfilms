@@ -22,8 +22,6 @@ const Thanks = () => {
         });
     }, [orderId, orderError]);
 
-    console.log("ORDEN", order)
-
     return (
         <div className="mx-3 text-center">
             {

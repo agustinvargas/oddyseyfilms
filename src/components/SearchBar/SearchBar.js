@@ -2,26 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { FormControl, InputGroup } from 'react-bootstrap';
 import { getFirestore } from '../../firebase';
 import Item from '../Item/Item';
+import "../ItemListContainer/ItemListContainer.scss"
 
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [items, setItems] = useState([])
-    const [itemsSearched, setItemsSearched] = useState([]);
 
     const handleChange = (evt) => {
         setSearchTerm(evt.target.value);
-        setItemsSearched(items.filter(el => el.title.toLowerCase().includes(searchTerm.toLowerCase())))
     }
 
-    console.log(searchTerm)
-    console.log(itemsSearched)
-    const style = {
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, max-content))",
-        gridGap: "16px",
-        justifyContent: "center"
-
-    }
     useEffect(() => {
         const db = getFirestore();
         const itemCollection = db.collection("items");
@@ -32,6 +22,15 @@ const SearchBar = () => {
         })
     }, []);
 
+    const itemFilter = items.filter(el => {
+        if (searchTerm === "") {
+            return null
+        }
+        if (el.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+            return el
+        }
+        return false
+    })
 
     return (
         <>
@@ -39,22 +38,17 @@ const SearchBar = () => {
                 <InputGroup.Text id="inputGroup-sizing-sm">Escribí el título del film</InputGroup.Text>
                 <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
             </InputGroup>
-            <div className="my-5" style={style}>
-                {
-                    items.filter(val => {
-                        if (searchTerm === "") {
-                            return null
-                        }
-                        if (val.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
-                            return val
-                        }
-                        return false
-                    })
-                        .map(val => {
-                            return <Item data={val} key={val.id} />
-                        })
-                }
-            </div>
+            {
+                searchTerm === "" ? null
+                    : itemFilter.length > 0 ?
+                        <div className="my-5 list-container">
+                            {itemFilter.map(val => {
+                                return <Item data={val} key={val.id} />
+                            })
+                            }
+                        </div>
+                        : <div className="d-flex justify-content-center my-5">No hay coincidencias</div>
+            }
         </>
     );
 }
