@@ -1,11 +1,11 @@
 <h1 align="center">OdysseyFilms</h1>
 
-<p align="center">(En construcción.) Proyecto e-commerce para el curso de React.js de la carrera de Desarrollo Front-End en Coder-House.</p>
+<p align="center">Proyecto e-commerce para el curso de React.js de la carrera de Desarrollo Front-End de Coder-House. Simulador de una tienda de afiches de cine. Funcionalidades base: ver detalles de los productos, agregar/quitar productos en el carrito, agregar/quitar productos de la lista de deseos y buscar productos por título.</p>
+<p align="center">E-commerce project for the React.js course of the Front-End Development career at Coder-House. Simulator of a movie posters shop. Main functionalities: view product details, add / remove products in cart, add / remove products from wish list and search products by title.</p>
 
 ## Screenshots
 
-![OdysseySpace](https://s5.gifyu.com/images/primeraentregad9244a7579abba12.gif)
-Link: https://s5.gifyu.com/images/primeraentregad9244a7579abba12.gif
+![OdysseySpace](https://res.cloudinary.com/dp2no7dm6/image/upload/v1632164891/odysseyFilms/OdysseyFilms_k8pnn1.gif)
 
 ## Available Commands
 
@@ -43,11 +43,6 @@ For running the server file on you can use this command.
 - HTML
 - CSS/Sass
 - Bootstrap
-
-## Future Updates
-
-- [ ] Router
-- [ ] Mover IMG a public
 
 ## Author
 
