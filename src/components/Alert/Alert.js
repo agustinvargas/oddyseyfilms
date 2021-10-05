@@ -1,14 +1,14 @@
 import { Alert } from "react-bootstrap";
 
-function AlertForm({ state }) {
+function AlertForm({ state, heading, text }) {
 
     if (state) {
         return (
             <div>
                 <Alert className="my-5" variant="danger">
-                    <Alert.Heading>Chequeá la info</Alert.Heading>
+                    <Alert.Heading>{heading}</Alert.Heading>
                     <p>
-                        Al parecer, los correos electrónicos introducidos no coinciden
+                        {text}
                     </p>
                 </Alert>
             </div>

@@ -82,7 +82,7 @@ const Checkout = () => {
             <Container className="w-75 py-5 mx-auto" >
                 {order ? <Loader loading /> :
                     <>
-                        :
+                        
                         <Form className="px-lg-5">
                             <h1 className="mb-5">Completá tu datos</h1>
                             <Form.Group className="mb-3" controlId="formBasicName">
@@ -104,7 +104,7 @@ const Checkout = () => {
                             <Button disabled={isDiabledButton} variant="dark" onClick={handleFinishPurchase}>
                                 Realizar pedido
                             </Button>
-                            {alert && <AlertForm state={alert} />}
+                            {alert && <AlertForm state={alert} heading="Chequeá la info" text="Al parecer, las contraseñas de los correos no coinciden" />}
                         </Form>
                     </>
                 }

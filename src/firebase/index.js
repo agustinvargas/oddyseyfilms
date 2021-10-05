@@ -1,10 +1,11 @@
 // import { initializeApp } from "firebase/compact/app";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+import "firebase/compat/auth"
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIRESBASE,
+    apiKey: "AIzaSyDwY07UA1iWKRji8OaoHweVsQPlm2pilxM",
     authDomain: "odysseyfilm-ca6e0.firebaseapp.com",
     projectId: "odysseyfilm-ca6e0",
     storageBucket: "odysseyfilm-ca6e0.appspot.com",
@@ -15,5 +16,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const getFirestore = () => firebase.firestore()
+export const auth = firebase.initializeApp(firebaseConfig).auth()
+
 
 

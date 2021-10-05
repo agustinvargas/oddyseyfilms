@@ -11,6 +11,8 @@ import WishList from '../components/WishList/WishList';
 import Hero from '../components/Hero/Hero';
 import Message from '../components/Messages/Message';
 import SearchBar from '../components/SearchBar/SearchBar';
+import Auth from '../components/Auth/Auth';
+import UserDetail from '../components/UserDetail/UserDetail';
 
 const Router = () => {
     return (
@@ -25,6 +27,8 @@ const Router = () => {
                 <Route path="/tienda" component={ItemListContainer} />
                 <Route path="/orden-creada/:orderId" component={Thanks} />
                 <Route path="/buscar" component={SearchBar} />
+                <Route path="/log-in" component={Auth} />
+                <Route path="/mi-cuenta" component={UserDetail} />
                 <Route exact path="/" component={Hero} />
                 <Route path="*"><Message text="¡Ups! No se encontró la página" /></Route>
             </Switch>
