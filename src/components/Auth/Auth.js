@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { auth } from "../../firebase";
 import AlertForm from "../Alert/Alert";
 import { useHistory } from "react-router";
+import { UserContext } from "../../contexts/userContext/UserContext";
 
 export default function Auth() {
-  const [email, setEmail] = useState("");
+  const { email, setEmail } = useContext(UserContext);
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
   const history = useHistory();
 
+  console.log("EMAIL", email);
+
   const userRegister = (e) => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((response) => history.push("/mi-cuenta/detalles"))
+      // .then((response) => history.push("/mi-cuenta/detalles"))
       .catch((err) => {
         if (err.code === "auth/invalid-email") {
           setError("Contraseña inválida");
@@ -29,11 +33,12 @@ export default function Auth() {
   const userLogin = () => {
     auth
       .signInWithEmailAndPassword(email, password)
+      // .then(() => alert("SESION INICIADA"))
       .then((response) => history.push("/mi-cuenta/detalles"))
       .catch((err) => {
         if (err.code === "auth/wrong-password") {
-            setError("Contraseña inválida");
-          }
+          setError("Contraseña inválida");
+        }
       });
   };
 
@@ -41,11 +46,7 @@ export default function Auth() {
     <Form onSubmit={userRegister}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Correo electrónico</Form.Label>
-        <Form.Control
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Enter email"
-        />
+        <Form.Control onChange={(e) => setEmail(e.target.value)} type="email" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -53,7 +54,6 @@ export default function Auth() {
         <Form.Control
           onChange={(e) => setPassword(e.target.value)}
           type="password"
-          placeholder="Password"
         />
       </Form.Group>
       <Button variant="primary" type="submit" className="mx-2">

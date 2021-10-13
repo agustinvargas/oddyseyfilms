@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import CartWidget from "../NavWidgets/CartWidget/CartWidget";
 import SearchWidget from "../NavWidgets/SearchWidget/SearchWidget";
@@ -6,9 +6,10 @@ import WishListWidget from "../NavWidgets/WishListWidget/WishListWidget";
 import { Link } from "react-router-dom";
 import "./NavBar.scss";
 import { auth } from "../../firebase";
+import { UserContext } from "../../contexts/userContext/UserContext";
 
 const NavBar = () => {
-  const [login, setLogin] = useState(false);
+  const { login, setLogin } = useContext(UserContext);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
