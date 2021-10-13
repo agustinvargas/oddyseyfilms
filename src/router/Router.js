@@ -27,7 +27,7 @@ const Router = () => {
         <Route path="/tienda" component={ItemListContainer} />
         <Route path="/orden-creada/:orderId" component={Thanks} />
         <Route path="/buscar" component={SearchBar} />
-        <Route path="/log-in" component={Auth} />
+        <Route path="/registro" component={Auth} />
         <Route path="/mi-cuenta" component={MyAccount} />
         <Route exact path="/" component={Hero} />
         <Route path="*">

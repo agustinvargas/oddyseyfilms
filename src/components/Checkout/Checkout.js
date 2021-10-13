@@ -56,7 +56,6 @@ const Checkout = () => {
         buyer: {
           name,
           phone,
-          email,
         },
         items: infoCart,
         date: firebase.firestore.Timestamp.fromDate(new Date()),
