@@ -1,7 +1,8 @@
-<h1 align="center">OdysseyFilms</h1>
+# OdysseyFilms
 
-<p align="center">Proyecto e-commerce para el curso de React.js de la carrera de Desarrollo Front-End de Coder-House. Simulador de una tienda de afiches de cine. Funcionalidades base: ver detalles de los productos, agregar/quitar productos en el carrito, agregar/quitar productos de la lista de deseos y buscar productos por título.</p>
-<p align="center">E-commerce project for the React.js course of the Front-End Development career at Coder-House. Simulator of a movie posters shop. Main functionalities: view product details, add / remove products in cart, add / remove products from wish list and search products by title.</p>
+Proyecto e-commerce para el curso de React.js de la carrera de Desarrollo Front-End de Coder-House. Simulador de una tienda de afiches de cine. Funcionalidades base: ver detalles de los productos, agregar/quitar productos en el carrito, agregar/quitar productos de la lista de deseos y buscar productos por título.
+
+E-commerce project for the React.js course of the Front-End Development career at Coder-House. Simulator of a movie posters shop. Main functionalities: view product details, add / remove products in cart, add / remove products from wish list and search products by title.
 
 ## Screenshots
 
